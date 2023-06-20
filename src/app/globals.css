@@ -1,3 +1,19 @@
 :root {
+    /* Colors */
+    --main-color: #ce1b76;
+    --second-color: #d9d9d9;
+    --third-color: #fff;
+    --brand-color: #3b77e0;
+
+
+    /* Font Size */
+    --font-s: 12px;
+    --font-m: 14px;
+    --font-l: 32px;
+
+    /* Font Weight */
+    --light: 200;
+    --regular: 400;
+    --bold: 600;
 
 }

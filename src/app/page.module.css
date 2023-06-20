@@ -1,17 +1,75 @@
+.body {
+}
+
 .header {
   display: flex;
   position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  background-image: url(../../public/Image/background-amfi.png);
 }
 
   .headerImg {
+    display: flex;
     position: relative;
+    width: 100%;
   }
 
   .headerTitle {
     display: flex;
     position: absolute;
+    padding-left: 2rem;
+    color: var(--third-color);
     justify-content: flex-start;
-    text-align: center;
-    z-index: 1;
-    color: #fff;
+    align-items: center;
   }
+
+  .toDoList {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+  
+  .toDoListTitle {
+    align-items: center;
+    font-size: var(--font-m);
+    font-weight: var(--bold);
+  }
+  
+  .toDoListIcon {
+    margin-right: .5rem;
+    align-items: center;
+  }
+
+.toDoListItem {
+  border: 1.5px solid var(--second-color);
+  border-radius: .5rem;
+  padding: 1rem;
+  margin-right: 2rem;
+  font-size: var(--font-m);
+  font-weight: var(--light);
+
+}
+
+.toDoListRadio {
+  margin-right: .5rem;
+}
+
+.toDoListRadioChecked:checked {
+  background-color: var(--main-color);
+}
+
+.addTaskButton {
+  height: 2rem;
+  width: 10rem;
+  color: var(--main-color);
+  border: 1.5px solid var(--main-color);
+  background-color: var(--third-color);
+  border-radius: .4rem;
+  font-size: var(--font-s);
+  font-weight: var(--light);
+  letter-spacing: 1.5px;
+  margin-top: .5rem;
+}
