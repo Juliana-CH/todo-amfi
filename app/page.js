@@ -1,6 +1,5 @@
 'use client'
 import { createContext } from 'react';
-import Image from 'next/image';
 import styles from './page.module.css';
 
 const Context = createContext()
@@ -13,11 +12,13 @@ export default function Home() {
       <div className={styles}>
 
         <header className={styles.header}>
-          <div className={styles.headerImg}>
-          {/*<Image src='/Image/background-amfi.png' alt='' width={500} height={130}/>
-          <Image src='/Image/background-amfi.png' alt='' width={500} height={130}/>*/}
+
+          <div className={styles.headerImgContainer}>
+            <div className={styles.headerImg1}></div>
+            <div className={styles.headerImg2}></div>
           </div>
-          <h1 className={styles.headerTitle}>ToDo Amfi</h1>
+          
+            <h1 className={styles.headerTitle}>ToDo Amfi</h1>
         </header>
 
         <section className={styles.toDoList}>
@@ -54,6 +55,7 @@ export default function Home() {
 
           <div className={styles.buttonContainer}>
             <button className={styles.addTaskButton}> + Adicionar Tarefa </button>
+            <button className={styles.delTaskButton}> Deletar Tarefa </button>
           </div>
 
         </section>
