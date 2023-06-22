@@ -1,4 +1,4 @@
-.body {
+.app {
   font-family: var(--font);
 }
 
@@ -29,20 +29,33 @@
     font-size: var(--font-m);
     font-weight: var(--bold);
   }
-  
-  .toDoListIcon {
-    margin-right: .5rem;
-    align-items: center;
-  }
 
 .toDoListItem {
+  display: flex;
   border: 1.5px solid var(--second-color);
   border-radius: .5rem;
   padding: 1rem;
   margin-right: 2rem;
+  margin-bottom: 1rem;
   font-size: var(--font-m);
   font-weight: var(--light);
+}
 
+.toDoListForm {
+  display: flex;
+  border: 1.5px solid var(--second-color);
+  border-radius: .5rem;
+  padding: 1rem;
+  font-size: var(--font-m);
+  font-weight: var(--light);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.toDoListText {
+  border: none;
+  
 }
 
 .toDoListRadio {
@@ -53,7 +66,7 @@
   background-color: var(--main-color);
 }
 
-.addTaskButton {
+.addToDoButton {
   height: 2rem;
   width: 10rem;
   color: var(--third-color);
@@ -65,9 +78,10 @@
   letter-spacing: 1.5px;
   margin-top: .5rem;
   margin-right: 2rem;
+  cursor: pointer;
 }
 
-.delTaskButton {
+/*.delToDoButton {
   height: 2rem;
   width: 10rem;
   color: var(--main-color);
@@ -79,4 +93,5 @@
   letter-spacing: 1.5px;
   margin-top: .5rem;
   margin-right: 2rem;
-}
+  cursor: pointer;
+}*/

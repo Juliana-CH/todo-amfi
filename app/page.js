@@ -1,67 +1,82 @@
 'use client'
 import { createContext } from 'react';
+import { useState } from 'react';
+import Todo from '../src/components/Todo';
+import TodoForm from '../src/components/TodoForm';
 import styles from './page.module.css';
 
 const Context = createContext()
 
-export default function Home() {
+export default function app() {
+  const [toDos, setToDos] = useState([
+
+    {
+      id: 1,
+      text: "Preparar apresentação novo projeto.",
+      isCompleted: false,
+    },
+    {
+      id: 2,
+      text: "Revisar banco de dados.",
+      isCompleted: false,
+    },
+  ]);
+
+  const addToDo = (text) => { // Adicionar tarefa
+
+    const newToDos = [...toDos, {
+      id: Math.floor(Math.random() * 10000),
+      text,
+      isCompleted: false
+    },
+  ];
+
+    setToDos(newToDos)
+  };
+
+  /*const delToDo = (id) => { //Função para deletar tarefa
+    const newToDos = [...toDos]
+    const filteredToDos = newToDos.filter((toDo) => //Busco quais tem id diferente e retorno eles à lista 
+    toDo.id !== id ? toDo : null
+    );
+    setToDos(filteredToDos);
+  }*/
+
   return (
 
-    <body className={styles.body}>
+    <div className={styles.app}>
 
-      <div className={styles}>
+      <header className={styles.header}>
 
-        <header className={styles.header}>
+        <div className={styles.headerImgContainer}>
+          <div className={styles.headerImg1}></div>
+          <div className={styles.headerImg2}></div>
+        </div>
+        
+          <h1 className={styles.headerTitle}>ToDo Amfi</h1>
+      </header>
 
-          <div className={styles.headerImgContainer}>
-            <div className={styles.headerImg1}></div>
-            <div className={styles.headerImg2}></div>
-          </div>
-          
-            <h1 className={styles.headerTitle}>ToDo Amfi</h1>
-        </header>
+      <section className={styles.toDoList}>
 
-        <section className={styles.toDoList}>
+        <div className={styles.toDoListTitle}>
+          <h2>
+            🗂 ToDo
+          </h2>
+        </div>
 
-          <div className={styles.toDoListTitle}>
-            <h2>
-              🗂 ToDo
-            </h2>
-          </div>
+        <div className={styles.toDoListItems}>
+          { toDos.map((toDo) => (
 
-          <div className={styles.toDoListItems}>
+          <Todo key={toDo.id} toDo={toDo} /*delToDo={delToDo}*//>
+  
+        ))}
 
-            <h3 className={styles.toDoListItem}>
-              <input className={`${styles.toDoListRadio} ${styles['toDoListRadioChecked']}`} type='radio' />Tarefa 1
-            </h3>
+          <TodoForm addToDo={addToDo}/>
+       
+        </div>
 
-            <h3 className={styles.toDoListItem}>
-              <input className={`${styles.toDoListRadio} ${styles['toDoListRadioChecked']}`} type='radio'/>Tarefa 2
-            </h3>
+      </section>
 
-            <h3 className={styles.toDoListItem}>
-              <input className={`${styles.toDoListRadio} ${styles['toDoListRadioChecked']}`} type='radio'/>Tarefa 3
-            </h3> 
-
-            <h3 className={styles.toDoListItem}>
-              <input className={`${styles.toDoListRadio} ${styles['toDoListRadioChecked']}`} type='radio'/>Tarefa 4
-            </h3> 
-
-            <h3 className={styles.toDoListItem}>
-              <input className={`${styles.toDoListRadio} ${styles['toDoListRadioChecked']}`} type='radio'/>Tarefa 5
-            </h3>    
-          
-          </div>
-
-          <div className={styles.buttonContainer}>
-            <button className={styles.addTaskButton}> + Adicionar Tarefa </button>
-            <button className={styles.delTaskButton}> Deletar Tarefa </button>
-          </div>
-
-        </section>
-
-      </div>
-
-    </body>
+    </div>
   )
 }
