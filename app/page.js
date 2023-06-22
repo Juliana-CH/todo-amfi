@@ -19,8 +19,9 @@ export default function app() {
     const newToDos = [...toDos, { //Recebe todos os meus arrays + os inputados, spread (...) serev para garantir que o original não será alterado.
       id: Math.floor(Math.random() * 10000), //Para garantir que o id seja único
       text,
-      //isCompleted: false
+      isCompleted: false,
     },
+    
   ];
 
     setToDos(newToDos) //Adicionando as novas tarefas às já existentes
@@ -59,11 +60,11 @@ export default function app() {
         <div className={styles.toDoListItems}>
           { toDos.map((toDo) => (
 
-          <Todo key={toDo.id} toDo={toDo} /*delToDo={delToDo}*//>
+          <Todo key={toDo.id} toDo={toDo} toDos={toDos} setToDos={setToDos}/*delToDo={delToDo}*//>
   
         ))}
 
-          <TodoForm addToDo={addToDo}/>
+          <TodoForm addToDo={addToDo} toDos={toDos}/>
        
         </div>
 

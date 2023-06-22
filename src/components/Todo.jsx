@@ -1,12 +1,20 @@
 import React from 'react';
 import styles from '../../app/page.module.css';
 
-const Todo = ({ toDo, /*delToDo*/ }) => {
+const Todo = ({ toDo, toDos, setToDos, /*delToDo*/ }) => {
+  const setToDo = () => {
+    const index = toDos.indexOf(toDo);
+    const newToDos = [...toDos];
+    newToDos[index].isCompleted = !newToDos[index].isCompleted;
+    setToDos(newToDos);
+  }
     return (
         <div className={styles.toDoListItem}>
        
-          <input className={`${styles.toDoListRadio} ${styles['toDoListRadioChecked']}`} type='radio' />
-          <p>{toDo.text}</p>
+          <input checked={toDo.isCompleted} onClick={ setToDo }
+          className={`${styles.toDoListRadio} 
+          ${styles['toDoListRadioChecked']}`} type='radio' />
+          <p>{toDo.isCompleted ? <s>{toDo.text}</s> : toDo.text}</p>
        
           {/*<div className={styles.buttonContainer}>
             <button className={styles.delToDoButton} onClick={() => delToDo(toDo.id)}> 

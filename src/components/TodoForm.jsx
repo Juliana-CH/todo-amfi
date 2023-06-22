@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from '../../app/page.module.css';
 
-const TodoForm = ( {addToDo, /*delToDo*/ }) => {
+const TodoForm = ( {addToDo, toDos, /*delToDo*/ }) => {
     const [value, setValue] = useState (""); //Atualização do estado do componente
 
     const handleSubmit = (e) => { //Renderiza nova tarefa quando é enviada
