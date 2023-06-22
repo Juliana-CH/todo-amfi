@@ -50,8 +50,8 @@
   font-weight: var(--light);
   width: 100%;
   box-sizing: border-box;
+  margin-right: 4rem;
 }
-
 
 .toDoListText {
   border: none;
@@ -69,15 +69,14 @@
 .addToDoButton {
   height: 2rem;
   width: 10rem;
-  color: var(--third-color);
-  border: 1.5px solid var(--third-color);
-  background-color: var(--main-color);
+  color: var(--main-color);
+  border: 1.5px solid var(--main-color);
+  background-color: var(--third-color);
   border-radius: .4rem;
   font-size: var(--font-s);
   font-weight: var(--light);
   letter-spacing: 1.5px;
-  margin-top: .5rem;
-  margin-right: 2rem;
+  margin-top: 1rem;
   cursor: pointer;
 }
 
@@ -91,7 +90,13 @@
   font-size: var(--font-s);
   font-weight: var(--light);
   letter-spacing: 1.5px;
-  margin-top: .5rem;
+  margin-top: 1rem;
   margin-right: 2rem;
   cursor: pointer;
 }*/
+
+.taskCounter {
+  font-size: var(--font-s);
+  font-weight: var(--light);
+  color: #7c7c7c;
+}

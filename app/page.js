@@ -5,33 +5,25 @@ import Todo from '../src/components/Todo';
 import TodoForm from '../src/components/TodoForm';
 import styles from './page.module.css';
 
-const Context = createContext()
-
 export default function app() {
   const [toDos, setToDos] = useState([
-
-    {
+    /*{
       id: 1,
-      text: "Preparar apresentação novo projeto.",
+      text: 'Uma tarefa',
       isCompleted: false,
-    },
-    {
-      id: 2,
-      text: "Revisar banco de dados.",
-      isCompleted: false,
-    },
-  ]);
+    }*/
+  ]); //Armazena lista de tarefas
 
-  const addToDo = (text) => { // Adicionar tarefa
+  const addToDo = (text) => { //Adicionar tarefa
 
-    const newToDos = [...toDos, {
-      id: Math.floor(Math.random() * 10000),
+    const newToDos = [...toDos, { //Recebe todos os meus arrays + os inputados, spread (...) serev para garantir que o original não será alterado.
+      id: Math.floor(Math.random() * 10000), //Para garantir que o id seja único
       text,
-      isCompleted: false
+      //isCompleted: false
     },
   ];
 
-    setToDos(newToDos)
+    setToDos(newToDos) //Adicionando as novas tarefas às já existentes
   };
 
   /*const delToDo = (id) => { //Função para deletar tarefa
@@ -60,7 +52,7 @@ export default function app() {
 
         <div className={styles.toDoListTitle}>
           <h2>
-            🗂 ToDo
+            🗂 ToDo <span className={styles.taskCounter}>{toDos.length > 1 ? ` (${toDos.length} tarefas)` : ` (${toDos.length} tarefa)`}</span>
           </h2>
         </div>
 
