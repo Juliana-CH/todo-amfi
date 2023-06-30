@@ -31,7 +31,8 @@
   }
 
 .toDoListItem {
-  display: flex;
+  display: grid;
+  grid-template-columns: 90% 10%;
   border: 1.5px solid var(--second-color);
   border-radius: .5rem;
   padding: 1rem;
@@ -39,6 +40,14 @@
   margin-bottom: 1rem;
   font-size: var(--font-m);
   font-weight: var(--light);
+}
+
+.form {
+  margin-right: 2rem;
+}
+
+.inputTask {
+  display: flex;
 }
 
 .toDoListForm {
@@ -55,7 +64,6 @@
 
 .toDoListText {
   border: none;
-  
 }
 
 .toDoListRadio {
@@ -80,20 +88,24 @@
   cursor: pointer;
 }
 
-/*.delToDoButton {
-  height: 2rem;
-  width: 10rem;
+.containerDeleteButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delToDoButton {
+  align-items: center;
   color: var(--main-color);
-  border: 1.5px solid var(--main-color);
+  border: none;
   background-color: var(--third-color);
   border-radius: .4rem;
   font-size: var(--font-s);
   font-weight: var(--light);
   letter-spacing: 1.5px;
-  margin-top: 1rem;
-  margin-right: 2rem;
   cursor: pointer;
-}*/
+}
+
 
 .taskCounter {
   font-size: var(--font-s);

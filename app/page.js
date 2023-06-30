@@ -7,16 +7,16 @@ import styles from './page.module.css';
 
 export default function app() {
   const [toDos, setToDos] = useState([
-    /*{
+    {
       id: 1,
       text: 'Uma tarefa',
       isCompleted: false,
-    }*/
+    }
   ]); //Armazena lista de tarefas
 
   const addToDo = (text) => { //Adicionar tarefa
 
-    const newToDos = [...toDos, { //Recebe todos os meus arrays + os inputados, spread (...) serev para garantir que o original não será alterado.
+    const newToDos = [...toDos, { //Recebe todos os meus arrays + os inputados, spread (...) serve para garantir que o original não será alterado.
       id: Math.floor(Math.random() * 10000), //Para garantir que o id seja único
       text,
       isCompleted: false,
@@ -27,13 +27,13 @@ export default function app() {
     setToDos(newToDos) //Adicionando as novas tarefas às já existentes
   };
 
-  /*const delToDo = (id) => { //Função para deletar tarefa
+  const delToDo = (id) => { //Função para deletar tarefa
     const newToDos = [...toDos]
     const filteredToDos = newToDos.filter((toDo) => //Busco quais tem id diferente e retorno eles à lista 
     toDo.id !== id ? toDo : null
     );
     setToDos(filteredToDos);
-  }*/
+  }
 
   return (
 
@@ -60,7 +60,7 @@ export default function app() {
         <div className={styles.toDoListItems}>
           { toDos.map((toDo) => (
 
-          <Todo key={toDo.id} toDo={toDo} toDos={toDos} setToDos={setToDos}/*delToDo={delToDo}*//>
+          <Todo key={toDo.id} toDo={toDo} toDos={toDos} setToDos={setToDos} delToDo={delToDo}/>
   
         ))}
 
