@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../../app/page.module.css';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
@@ -8,7 +8,20 @@ const Todo = ({ toDo, toDos, setToDos, delToDo }) => {
     const newToDos = [...toDos];
     newToDos[index].isCompleted = !newToDos[index].isCompleted;
     setToDos(newToDos);
-  }
+  };
+
+
+  useEffect(() => {
+    const storedToDos = localStorage.getItem("toDos");
+    if (storedToDos) {
+      setToDos(JSON.parse(storedToDos));
+    }
+  }, [setToDos]);
+
+  useEffect(() => {
+    localStorage.setItem("toDos", JSON.stringify(toDos));
+  }, [toDos]);
+
     return (
       <div className={styles.toDoListItem}>
         
